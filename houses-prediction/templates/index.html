@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+    
+    <title>Home Page</title> 
+
+    <style>
+        body,
+    html {
+  height: 100%;
+    }
+
+.img {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 110, 0.5),
+      rgb(1, 0, 87)
+    ),
+    url("https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size: 100% 100%;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.title {
+  font-size: 50px;
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+}
+
+.title:hover {
+  transition: 0.5s;
+  color: #d80286;
+}
+.form {
+  max-width: 270px;
+  font-family: "Raleway", sans-serif;
+  font-weight: normal;
+  line-height: 1.625;
+  margin: 8px auto;
+  padding-left: 16px;
+  z-index: 2;
+}
+
+input[type="number"],
+select option {
+  background-color: #d80286;
+  color: white;
+}
+.dist {
+  color: #ffffff;
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 32px;
+  margin: 0 0 24px;
+}
+
+.location {
+  /* text-indent: 30%; */
+  width: 70%;
+  margin-left: 10px;
+  padding: 8px;
+  color: #fff;
+  background-color: rgb(216, 2, 134);
+  position: relative;
+  display: inline-block;
+  transform: scale(1.1);
+}
+
+.month {
+  transition: 0.2s;
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+.submit {
+  margin-top: 20px;
+  width: 76%;
+  color: rgb(0, 0, 0);
+  border: 2px solid rgb(216, 2, 134);
+  border-radius: 0px;
+  padding: 18px 36px;
+  display: inline-block;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 #d80286;
+  transition: ease-out 0.4s;
+}
+
+.submit:hover {
+  box-shadow: inset 400px 0 0 0 #d80286;
+}
+
+
+
+    </style>
+</head>
+
+
+<body> 
+    <div class="img"></div>
+
+    
+        <h1 class="title">Melbourne House Price Prediction</h1>
+    
+
+    <div> 
+        <form action="/predict" method="POST" class = "form">
+            <label for="Distance" class = 'dist'>Distance from CBD</label><br>
+            <input type='number' step="0.1" id='Distance' name='Distance'><br><br>
+            
+            <label for="Postcode" class = 'dist'>Postcode</label><br>
+            <input type='number' id='Postcode' name='Postcode'><br><br>
+
+            <label for='Car' class = 'dist'>Car</label><br>
+            <select id='Car' name='Car' class ="location">
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=3>4</option>
+                <option value=3>5</option>
+                <option value=3>6</option>
+                <option value=3>7</option>
+                <option value=3>8</option>
+                <option value=3>9</option>
+                <option value=3>10</option>
+            </select><br><br>
+
+
+            <label for="Landsize" class = 'dist'>Landsize</label><br>
+            <input type='number' step="0.1" id='Landsize' name='Landsize'><br><br>
+
+            
+            <label for="BuildingArea" class = 'dist'>BuildingArea</label><br>
+            <input type='number' step="0.1" id='BuildingArea' name='BuildingArea'><br><br>
+
+            <label for="YearBuilt" class = 'dist'>YearBuilt</label><br>
+            <input type='number' id='YearBuilt' name='YearBuilt'><br><br>
+
+
+            <label for="Propertycount" class = 'dist'>Propertycount</label><br>
+            <input type='number' id='Propertycount' name='Propertycount'><br><br>
+
+
+            <label for="year" class = 'dist'>year-Of-Sold</label><br>
+            <input type='number' id='year' name='year'><br><br>
+
+
+            <label for="house_rooms" class = 'dist'>house_rooms</label><br>
+            <input type='number' id='house_rooms' name='house_rooms'><br><br>
+
+
+
+            <label for="Method" class = 'dist'>Method</label><br>
+            <select id="Method" name="Method" class = "location">
+            <option value="S">S</option>
+            <option value="SP">SP</option>
+            <option value="PI">PI</option>
+            <option value="VB">VB</option>
+            <option value="SA">SA</option>
+            
+            </select><br><br>
+
+
+            <label for='Type' class = 'dist'>Type</label><br>
+            <select id='Type' name='Type' class = "location">
+                <option value="h">h</option>
+                <option value="u">u</option>
+                <option value="t">t</option>
+
+               
+            </select><br><br>
+        
+           
+        
+            <label for="day" class = 'dist'>Day-Of-Sold</label><br>
+            <select id="day" name="day" class = "location">
+            <option value="Saturday">Saturday</option>
+            <option value="Sunday">Sunday</option>
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+            </select><br><br>
+
+            <label for='month' class = 'dist'>Month-Of-Sold</label><br>
+            <select id='month' name='month' class = "location">
+                <option value ="august">august</option>
+                <option value ="december">december</option>
+                <option value ="february">february</option>
+                <option value ="january">january</option>
+                <option value ="july">july</option>
+                <option value ="june">june</option>
+                <option value ="march">march</option>
+                <option value ="may">may</option>
+                <option value ="november">november</option>
+                <option value ="october">october</option>
+                <option value ="September">September</option>
+                <option value ="april">april</option>
+            </select><br><br>
+
+
+            <input type="Submit" class = "submit" value="Predict"/>
+        </form>
+        
+    </div>
+
+
+</body>
